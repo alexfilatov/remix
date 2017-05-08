@@ -28,7 +28,7 @@ defmodule Remix do
     end
 
     def handle_info(:poll_and_reload, state) do
-      current_mtime = get_current_mtime
+      current_mtime = get_current_mtime()
 
       if state.last_mtime != current_mtime do
         comp_elixir = fn -> Mix.Tasks.Compile.Elixir.run(["--ignore-module-conflict"]) end
